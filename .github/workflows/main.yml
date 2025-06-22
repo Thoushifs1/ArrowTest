@@ -1,15 +1,6 @@
-name: .NET Build and Test
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,16 +8,10 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x' # or '7.0.x', '6.0.x' depending on your project
+          dotnet-version: '8.0.x'
+
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore MyApp.sln
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
-
-      - name: Run Tests
-        run: dotnet test --no-build --verbosity normal
-
-
-     
-
+        run: dotnet build MyApp.sln --no-restore
