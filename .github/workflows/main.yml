@@ -19,8 +19,8 @@ jobs:
         with:
           dotnet-version: '8.0.x' # or '7.0.x', '6.0.x' depending on your project
 
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: tests
+        run: dotnet test
 
       - name: Build
         run: dotnet build --no-restore --configuration Release
