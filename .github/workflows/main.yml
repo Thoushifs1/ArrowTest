@@ -11,7 +11,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore MyApp.sln
+        run: dotnet restore MyApp/MyApp.sln
 
       - name: Build
-        run: dotnet build MyApp.sln --no-restore
+        run: dotnet build MyApp/MyApp.sln --no-restore
